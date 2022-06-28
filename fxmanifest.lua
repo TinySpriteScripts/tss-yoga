@@ -1,4 +1,4 @@
-name "8bit-yoga"
+name "mk-yoga"
 author "McKlean"
 version "v1.0"
 description "Yoga Script By McKlean"
@@ -10,9 +10,11 @@ client_scripts {
 }
 
 server_scripts {
-    'server/server.lua'
+    'server/*.lua'
 }
 
 shared_scripts {
     'config.lua',
 }
+
+lua54 'yes'

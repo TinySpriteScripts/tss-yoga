@@ -1,5 +1,6 @@
-# 8bit-yoga
-A Yoga Script to relief stress for QBCore
+# MK-YOGA
+This script is to allow citizens of your city to find peace and relax in the city of Los Santos by finding their Zen while excercising in Yoga.
+Citizens of your city will be able to interact with yoga mats placed around the city to destress before going about their busy daily lives.
 
 ## Updated ##
 12/01/2022 - [lilphantom25](https://github.com/lilphantom25)
@@ -7,9 +8,9 @@ Script Created
 
 
 ## Dependencies  ##
-[QBCore Framework](https://github.com/qbcore-framework/qb-core)
-
-[PolyZone](https://github.com/mkafrin/PolyZone)
+- [QBCore Framework](https://github.com/qbcore-framework/qb-core)
+- [PolyZone](https://github.com/mkafrin/PolyZone)
+- [qb-target](https://github.com/qbcore-framework/qb-target)
 
 
 ## Key Features ##
@@ -21,6 +22,3 @@ Script Created
 
 ## To Setup ##
  - Install, Ensure and off you go
-
-## License ##
-This script is a (GNU) GENERAL PUBLIC LICENSE
