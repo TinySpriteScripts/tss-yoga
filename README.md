@@ -3,8 +3,20 @@ This script is to allow citizens of your city to find peace and relax in the cit
 Citizens of your city will be able to interact with yoga mats placed around the city to destress before going about their busy daily lives.
 
 ## Updated ##
-12/01/2022 - [lilphantom25](https://github.com/lilphantom25)
-Script Created
+
+v2.0 - Overhaul Update
+- Updated 29th June 2022
+ - Made even more optimised
+ - More configuration
+ - Config Options
+   + Added debug option
+   + Added progressbar configuaration
+   + Added Animation configuration
+   + Made it easier to add multiple locations/yogamats
+
+v1.0 - Intial Release for [8BitRP](https://www.8bit.gg/)
+ - Created January 2022
+ - Simple Yoga Script
 
 
 ## Dependencies  ##
@@ -15,10 +27,14 @@ Script Created
 
 ## Key Features ##
  - Provides your city with a way to release stress
- - Default stress release is set to 10
- - Long progressbar to stop Abuse
- - 3 Yoga Mats outside the main City Hall
- - Configurable Mat placement (client.lua) and Target locations (config.lua)
+   + Set your stress release anywhere from 1-100 in the config
+ - Config Adjustments
+   + Progressbar timer (set long by default to stop abuse)
+   + Adjustable Yoga animation in the config
+   + Set your yogamat locations, as many as you want
+   + Set your Yoga Locations names and blips
 
 ## To Setup ##
- - Install, Ensure and off you go
+ 1. Download, Extract and remove `-main` from the inside file
+ 2. Place file in your resources folder
+ 3. Make sure to `ensure` the folder

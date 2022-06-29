@@ -1,41 +1,36 @@
 local QBCore = exports['qb-core']:GetCoreObject()
 
-
 CreateThread(function()
-    Blip = AddBlipForCoord(Config.Locations["main"].coords)
-    SetBlipSprite(Blip, 197)
-    SetBlipDisplay(Blip, 4)
-    SetBlipColour(Blip, 27)
-    SetBlipScale(Blip, 0.6)
-    SetBlipAsShortRange(Blip, true)
-    BeginTextCommandSetBlipName("STRING")
-    AddTextComponentSubstringPlayerName(Config.Locations["main"].label)
-    EndTextCommandSetBlipName(Blip)
-
-	local yogamat = CreateObject(4062944218,-488.87, -217.89, 36.58-1.0,false,false,false) -- front left
-	SetEntityHeading(yogamat,GetEntityHeading(yogamat)-60)
-	FreezeEntityPosition(yogamat, true)
-
-	local yogamat2 = CreateObject(2057317573, -491.09, -219.26, 36.52-1.0,false,false,false) -- front right
-	SetEntityHeading(yogamat2,GetEntityHeading(yogamat2)-60)
-	FreezeEntityPosition(yogamat2, true)
-
-	local yogamat3 = CreateObject(2316225442, -491.57, -216.18, 36.62-1.0,false,false,false) -- back
-	SetEntityHeading(yogamat3,GetEntityHeading(yogamat3)-60)
-	FreezeEntityPosition(yogamat3, true)
-
-	for k, v in pairs(Config.YogaLocations) do
-		exports['qb-target']:AddBoxZone("Yoga"..k, v.location, v.width, v.height, { name="Yoga"..k, heading = v.heading, debugPoly=Config.Debug, minZ = v.minZ, maxZ = v.maxZ, }, 
-			{ options = { { event = "mk-yoga:Yoga", icon = "fas fa-walking", label = "Stretch", loc = v.yoga, head = v.heading }, },
-				distance = v.distance
-		})
-	end
-
+    ---------- // Map Blips
+    for k, v in pairs(Config.YogaLocations) do
+        if Config.YogaLocations[k].blip then
+            Blip = AddBlipForCoord(Config.YogaLocations[k].location)
+            SetBlipSprite(Blip, 197)
+            SetBlipDisplay(Blip, 4)
+            SetBlipColour(Blip, Config.YogaLocations[k].blipcolor)
+            SetBlipScale(Blip, 0.6)
+            SetBlipAsShortRange(Blip, true)
+            BeginTextCommandSetBlipName("STRING")
+            AddTextComponentSubstringPlayerName(Config.YogaLocations[k].name)
+            EndTextCommandSetBlipName(Blip)
+        end
+    end
+    ---------- // Yogamat Spawn
+    for k, v in pairs(Config.YogaLocations) do
+        local yogamat = CreateObject(Config.YogaLocations[k].yogamat, vector3(Config.YogaLocations[k].location.x, Config.YogaLocations[k].location.y, Config.YogaLocations[k].location.z),false,false,false)
+        SetEntityHeading(yogamat,GetEntityHeading(yogamat)-60)
+        FreezeEntityPosition(yogamat, true)
+    end
+    ---------- // Target Circle Spawn
+    for k, v in pairs(Config.YogaLocations) do
+        exports['qb-target']:AddCircleZone(Config.YogaLocations[k].name, vector3(Config.YogaLocations[k].location.x, Config.YogaLocations[k].location.y, Config.YogaLocations[k].location.z), 0.88, 
+        { name=Config.YogaLocations[k].name, debugPoly=Config.Debug, useZ=true, }, { options = { { event = "mk-yoga:Yoga", icon = "fas fa-walking", label = "Stretch" }, }, distance = 2.0 })
+    end
 end)
-
+---------- // Animation and Progressbar
 RegisterNetEvent('mk-yoga:Yoga')
 AddEventHandler('mk-yoga:Yoga',function()
-    QBCore.Functions.Progressbar('finding_zen', 'Finding the Zen', Config.Progressbar, false, false, {
+    QBCore.Functions.Progressbar('finding_zen', Config.PbName, Config.PbTime, false, false, {
         disableMovement = true, disableCarMovement = true, disableMouse = false, disableCombat = true,
     }, {
         animDict = Config.Anim, anim = Config.Dict, flags = 8,
