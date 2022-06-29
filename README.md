@@ -2,6 +2,10 @@
 This script is to allow citizens of your city to find peace and relax in the city of Los Santos by finding their Zen while excercising in Yoga.
 Citizens of your city will be able to interact with yoga mats placed around the city to destress before going about their busy daily lives.
 
+## Support ##
+Need Support? Join our Discord and we'll see what we can do.
+https://discord.gg/EMEKnUupzZ
+
 ## Updated ##
 
 v2.0 - Overhaul Update
