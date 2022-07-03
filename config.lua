@@ -2,8 +2,9 @@ print("MK-Yoga v2.0 - Yoga Script by McKlean")
 
 Config = {}
 
-Config.Debug = true
+Config.Debug = false
 Config.Stress = 10  -- Amount of strees relieved
+Config.Health = 0   -- Amount of Health gained
 
 ---------- // Progressbar
 Config.PbName = 'Finding the Zen'   -- What you want it to say on the Progressbar

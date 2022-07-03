@@ -1,5 +1,5 @@
 name "mk-yoga"
-author "McKlean"
+author "McKlean - https://discord.gg/DEWp9TP7p6"
 version "v2.0"
 description "Yoga Script By McKlean"
 fx_version "cerulean"

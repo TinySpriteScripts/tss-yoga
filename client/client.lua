@@ -36,6 +36,7 @@ AddEventHandler('mk-yoga:Yoga',function()
         animDict = Config.Anim, anim = Config.Dict, flags = 8,
     }, {}, {}, function()  
         TriggerServerEvent('hud:server:RelieveStress', Config.Stress)
+        SetEntityHealth(ped, GetEntityHealth(ped) + Config.Health)
     end, function()
         TriggerEvent('inventory:client:busy:status', false)
 		TriggerEvent('QBCore:Notify', "Cancelled", 'error')

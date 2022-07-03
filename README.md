@@ -4,7 +4,7 @@ Citizens of your city will be able to interact with yoga mats placed around the 
 
 ## Support ##
 Need Support? Join our Discord and we'll see what we can do.
-https://discord.gg/EMEKnUupzZ
+[Join our Discord Here](https://discord.gg/DEWp9TP7p6)
 
 ## Updated ##
 
