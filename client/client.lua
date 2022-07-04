@@ -1,5 +1,7 @@
 local QBCore = exports['qb-core']:GetCoreObject()
 
+if Config.Debug then print("MK-Yoga v2.0 - Yoga Script by McKlean") end
+
 CreateThread(function()
     ---------- // Map Blips
     for k, v in pairs(Config.YogaLocations) do

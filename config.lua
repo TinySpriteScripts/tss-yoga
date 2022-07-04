@@ -1,4 +1,3 @@
-print("MK-Yoga v2.0 - Yoga Script by McKlean")
 
 Config = {}
 
@@ -8,7 +7,7 @@ Config.Health = 0   -- Amount of Health gained
 
 ---------- // Progressbar
 Config.PbName = 'Finding the Zen'   -- What you want it to say on the Progressbar
-Config.PbTime = 19000               -- Recommended if you dont want this to be abused (18500)
+Config.PbTime = 19000               -- Recommended if you dont want this to be abused (19000)
 
 Config.Anim = "amb@world_human_yoga@female@base"    -- Yoga Animation
 Config.Dict = "base_b"
