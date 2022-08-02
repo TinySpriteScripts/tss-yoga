@@ -17,4 +17,11 @@ shared_scripts {
     'config.lua',
 }
 
+escrow_ignore {
+    '*.lua*',
+    'client/*.lua*',
+    'server/*.lua*',
+    'locales/*.lua*',
+}
+
 lua54 'yes'
