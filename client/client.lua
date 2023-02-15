@@ -1,32 +1,32 @@
 local QBCore = exports['qb-core']:GetCoreObject()
+local Targets = {}
 
-if Config.Debug then print("MK-Yoga v2.0 - Yoga Script by McKlean") end
+if Config.Debug then print("MK-Yoga - Yoga Script by McKlean-Scripts") end
 
 CreateThread(function()
     ---------- // Map Blips
     for k, v in pairs(Config.YogaLocations) do
-        if Config.YogaLocations[k].blip then
-            Blip = AddBlipForCoord(Config.YogaLocations[k].location)
-            SetBlipSprite(Blip, 197)
-            SetBlipDisplay(Blip, 4)
-            SetBlipColour(Blip, Config.YogaLocations[k].blipcolor)
-            SetBlipScale(Blip, 0.6)
+        if v.blip then
+            Blip = AddBlipForCoord(v.location)
+            SetBlipSprite(Blip, v.sprite)
+            SetBlipDisplay(Blip, v.display)
+            SetBlipColour(Blip, v.blipcolor)
+            SetBlipScale(blip, v.scale)
             SetBlipAsShortRange(Blip, true)
             BeginTextCommandSetBlipName("STRING")
-            AddTextComponentSubstringPlayerName(Config.YogaLocations[k].name)
+            AddTextComponentSubstringPlayerName(v.name)
             EndTextCommandSetBlipName(Blip)
+            if Config.Debug then print(Lang:t('clientdebug.debug1', {one = v.name})) end
         end
-    end
     ---------- // Yogamat Spawn
-    for k, v in pairs(Config.YogaLocations) do
-        local yogamat = CreateObject(Config.YogaLocations[k].yogamat, vector3(Config.YogaLocations[k].location.x, Config.YogaLocations[k].location.y, Config.YogaLocations[k].location.z),false,false,false)
+        local yogamat = CreateObject(v.yogamat, v.location,false,false,false)
         SetEntityHeading(yogamat,GetEntityHeading(yogamat)-60)
         FreezeEntityPosition(yogamat, true)
-    end
     ---------- // Target Circle Spawn
-    for k, v in pairs(Config.YogaLocations) do
-        exports['qb-target']:AddCircleZone(Config.YogaLocations[k].name, vector3(Config.YogaLocations[k].location.x, Config.YogaLocations[k].location.y, Config.YogaLocations[k].location.z), 0.88, 
-        { name=Config.YogaLocations[k].name, debugPoly=Config.Debug, useZ=true, }, { options = { { event = "mk-yoga:Yoga", icon = "fas fa-walking", label = "Stretch" }, }, distance = 2.0 })
+        local name = v.name
+        Targets[name] =
+            exports['qb-target']:AddCircleZone(name, v.location, 0.88, { name=name, debugPoly=Config.Debug, useZ=true, }, 
+                { options = { { event = "mk-yoga:Yoga", icon = "fas fa-walking", label = Lang:t('target.TargetLabel') }, }, distance = 2.0 })
     end
 end)
 ---------- // Animation and Progressbar
@@ -43,4 +43,8 @@ AddEventHandler('mk-yoga:Yoga',function()
         TriggerEvent('inventory:client:busy:status', false)
 		TriggerEvent('QBCore:Notify', "Cancelled", 'error')
     end)
+end)
+
+AddEventHandler('onResourceStop', function(resource) if resource ~= GetCurrentResourceName() then return end
+	for k, v in pairs(Targets) do exports['qb-target']:RemoveZone(k) end
 end)

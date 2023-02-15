@@ -1,24 +1,20 @@
 name "mk-yoga"
-author "McKlean - https://discord.gg/DEWp9TP7p6"
-version "v2.0"
-description "Yoga Script By McKlean"
+author "McKlean-Scripts - https://discord.gg/DEWp9TP7p6"
+version "v2.1"
+description "Yoga Script By McKlean-Scripts"
 fx_version "cerulean"
 game "gta5"
 
-client_scripts {
-    'client/*.lua'
-}
-
-server_scripts {
-    'server/*.lua'
-}
-
+dependencies { 'qb-target', }
+client_scripts { 'client/*.lua' }
+server_scripts { 'server/*.lua' }
 shared_scripts {
+    'locales/en.lua',
     'config.lua',
+    'shared/*.lua'
 }
 
 escrow_ignore {
-    '*.lua*',
     'client/*.lua*',
     'server/*.lua*',
     'locales/*.lua*',

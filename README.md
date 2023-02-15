@@ -6,7 +6,16 @@ Citizens of your city will be able to interact with yoga mats placed around the 
 Need Support? Join our Discord and we'll see what we can do.
 [Join our Discord Here](https://discord.gg/DEWp9TP7p6)
 
+## Where to Purchase ##
+Only place to find McKlean-Scripts is [mcklean-scripts.tebex.io](https://mckleans-scripts.tebex.io/)
+We will not give any support if you have purchased/obtained this script from anywhere else.
+
 ## Updated ##
+v2.1 - LIttle cleaner
+- updated 15th Feb 2023
+ - Cleaned up the client.lua
+ - Added Locales (feel free to send me translations on discord)
+ - Added more blip stuff to teh config
 
 v2.0 - Overhaul Update
 - Updated 29th June 2022
@@ -18,7 +27,7 @@ v2.0 - Overhaul Update
    + Added Animation configuration
    + Made it easier to add multiple locations/yogamats
 
-v1.0 - Intial Release for [8BitRP](https://www.8bit.gg/)
+v1.0 - Created by McKlean-Scripts
  - Created January 2022
  - Simple Yoga Script
 
