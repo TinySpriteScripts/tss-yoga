@@ -1,9 +1,10 @@
--- MK-Yoga - Yoga Script by McKlean-Scripts - https://mckleans-scripts.tebex.io/
+-- MK-Yoga by [McKleans-Scripts](https://mckleans-scripts.tebex.io/) | [Discord](https://discord.gg/DEWp9TP7p6) | [BuyMeACoffee](https://www.buymeacoffee.com/mcklean)
 Config = {
 
     Debug = false,
     Stress = 10,  -- Amount of strees relieved
     Health = 0,   -- Amount of Health gained
+    Notify = "okok",        -- "qb" | "okok" | "rz"
 
     ---------- // Progressbar
     PbName = 'Finding the Zen',  -- What you want it to say on the Progressbar
@@ -17,7 +18,7 @@ Config = {
     YogaLocations = {
         [1] = { -- front left
             name = "Town Hall - Yoga Class",
-            blip = true,
+            blip = false,
             sprite = 197, display = 4, blipcolor = 69, scale = 0.5, -- (Green) 69 / https://docs.fivem.net/docs/game-references/blips/
             location = vector4(-488.87, -217.8, 35.58, 203.48),
             yogamat = 4062944218,   -- blue

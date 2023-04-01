@@ -1,9 +1,30 @@
 local Translations = {
-    target = {
-        TargetLabel = 'Stretch',
+    Notification = {
+        info = "Info",
+        warning = "Warning",
+        success = "Success",
+        error = "Error",
     },
+    info = {
+
+    },
+    warning = {
+
+    },
+    success = {
+
+    },
+    error = {
+        
+    },
+    target = {
+        TargetLabel = "Stretch",
+    },
+    prog = {
+        cancelled = "Cancelled",
+    }
     clientdebug = {
-        debug1 = '^1Debug:^7 Blip created for: ^5%{one}^7',
+        debug1 = "^1Debug:^7 Blip created for: ^5%{one}^7",
     },
 }
 
