@@ -18,10 +18,10 @@ local function GetCurrentVersion()
 
 		local MKVersion = GetResourceMetadata(GetCurrentResourceName(), "version")
 		print("---------- // Current version: "..MKVersion)
-		if ( vertext ~= nil ) then print("---------- // Latest recommended version: "..vertext)
-			if ( vertext ~= MKVersion ) then print( "---------- // ^1MK-Yoga is not up to date, please head to your keymaster.fivem.net to update.^7" )
-			else print("---------- // ^2MK-Yoga is up to date!^7") end
-		else print("---------- // ^1There was an error getting the latest version information.^7") end
+		
+		if ( vertext ~= MKVersion ) then print( "---------- // ^1MK-Yoga is not up to date, please head to your ^6keymaster.fivem.net^7^1 to update.^7" )
+        elseif ( vertext == MKVersion ) then print("---------- // ^2MK-Yoga is up to date!^7")
+        else print("---------- // ^1There was an error getting the latest version information.^7") end
 
 		-- Keep Credit where Credit is due
 		if ( GetCurrentResourceName() ~= "mk-yoga" ) then

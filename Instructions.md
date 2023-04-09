@@ -1,21 +1,26 @@
-# MK-YOGA
+# MK-Yoga by [McKleans-Scripts](https://mckleans-scripts.tebex.io/) | [Discord](https://discord.gg/DEWp9TP7p6) | [BuyMeACoffee](https://www.buymeacoffee.com/mcklean)
+
 This script is to allow citizens of your city to find peace and relax in the city of Los Santos by finding their Zen while excercising in Yoga.
 Citizens of your city will be able to interact with yoga mats placed around the city to destress before going about their busy daily lives.
-
-## Support ##
-Need Support? Join our Discord and we'll see what we can do.
-[Join our Discord Here](https://discord.gg/DEWp9TP7p6)
-
-## Where to Purchase ##
-Only place to find McKlean-Scripts is [mcklean-scripts.tebex.io](https://mckleans-scripts.tebex.io/)
-We will not give any support if you have purchased/obtained this script from anywhere else.
+NoPixel Inspired
 
 ## Updated ##
+v2.2
+- updated 8th April
+ - Added onResourceStop to remove those pesky polyboxes when testing
+   - or when youve accidentally left debug on :o
+ - Blip bits configured into the Config
+ - Added Debug Print for the locations
+ - Made the yogamat spawns and Target more optamised/cleaner
+ - Added a version file
+ - Added a shared folder [this folder is escrowed]
+ - Added Locales to config 
+
 v2.1 - LIttle cleaner
 - updated 15th Feb 2023
  - Cleaned up the client.lua
  - Added Locales (feel free to send me translations on discord)
- - Added more blip stuff to teh config
+ - Added more blip stuff to the config
 
 v2.0 - Overhaul Update
 - Updated 29th June 2022
@@ -39,6 +44,7 @@ v1.0 - Created by McKlean-Scripts
 
 
 ## Key Features ##
+ - NoPixel Inspired
  - Provides your city with a way to release stress
    + Set your stress release anywhere from 1-100 in the config
  - Config Adjustments
@@ -48,6 +54,11 @@ v1.0 - Created by McKlean-Scripts
    + Set your Yoga Locations names and blips
 
 ## To Setup ##
- 1. Download, Extract and remove `-main` from the inside file
- 2. Place file in your resources folder
- 3. Make sure to `ensure` the folder
+ 1. Create a file called `[scripts]` in your resource file
+  1a. ensure `[scripts]` in your `server.cfg`
+ 2. then create a file called `[mckleans]` in your `[scripts]` file
+ 3. and place `mk-yoga` in your `[mckleans]` file
+
+## Disclaimer ##
+ - The Shared file is the only file that is Escrowed, the rest is open source
+   - you shouldn't need access to the shared file for anything.

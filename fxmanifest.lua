@@ -1,8 +1,11 @@
+fx_version "cerulean"
+game "gta5"
+lua54 'yes'
+
 name "MK-Yoga"
 author "McKleans-Scripts - https://discord.gg/DEWp9TP7p6"
 version "v2.2"
-description "Yoga Script By McKlean-Scripts"
-
+description "Yoga By McKleans-Scripts"
 
 dependencies { 'qb-target', }
 client_scripts { 
@@ -14,7 +17,7 @@ client_scripts {
     'client/*.lua', 
 }
 server_scripts { 
-    'server/*.lua',
+    '@oxmysql/lib/MySQL.lua',
     'shared/version.lua',
 }
 shared_scripts {
@@ -23,11 +26,12 @@ shared_scripts {
     'config.lua',
     'shared/functions.lua'
 }
+
 escrow_ignore {
-    '*.lua*',
     'client/*.lua*',
     'server/*.lua*',
     'locales/*.lua*',
+    'config.lua',
 }
 
 dependency '/assetpacks'
