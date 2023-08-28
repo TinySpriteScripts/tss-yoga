@@ -4,7 +4,7 @@ lua54 'yes'
 
 name "MK-Yoga"
 author "McKleans-Scripts - https://discord.gg/DEWp9TP7p6"
-version "v2.2"
+version "v2.3"
 description "Yoga By McKleans-Scripts"
 
 dependencies { 'qb-target', }
@@ -24,7 +24,8 @@ shared_scripts {
     '@qb-core/shared/locale.lua',
 	'locales/en.lua',
     'config.lua',
-    'shared/functions.lua'
+    'shared/functions.lua',
+    '@ox_lib/init.lua'
 }
 
 escrow_ignore {

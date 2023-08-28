@@ -1,4 +1,4 @@
-# MK-Yoga by [McKleans-Scripts](https://mckleans-scripts.tebex.io/) | [Discord](https://discord.gg/DEWp9TP7p6) | [BuyMeACoffee](https://www.buymeacoffee.com/mcklean)
+# MK-Yoga by [McKleans-Scripts](https://mckleans-scripts.tebex.io/) | [Discord](https://discord.gg/DEWp9TP7p6) | [BuyUsAChinese](https://Ko-fi.com/mckleansscripts)
 
 This script is to allow citizens of your city to find peace and relax in the city of Los Santos by finding their Zen while excercising in Yoga.
 Citizens of your city will be able to interact with yoga mats placed around the city to destress before going about their busy daily lives.
@@ -52,6 +52,7 @@ v1.0 - Created by McKlean-Scripts
    + Adjustable Yoga animation in the config
    + Set your yogamat locations, as many as you want
    + Set your Yoga Locations names and blips
+ - 3 Yoga Mats are set by the main Courthouse by default
 
 ## To Setup ##
  1. Create a file called `[scripts]` in your resource file

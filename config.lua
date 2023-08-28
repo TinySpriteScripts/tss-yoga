@@ -1,11 +1,11 @@
--- MK-Yoga by [McKleans-Scripts](https://mckleans-scripts.tebex.io/) | [Discord](https://discord.gg/DEWp9TP7p6) | [BuyMeACoffee](https://www.buymeacoffee.com/mcklean)
+-- MK-Yoga by [McKleans-Scripts](https://mckleans-scripts.tebex.io/) | [Discord](https://discord.gg/DEWp9TP7p6) | [BuyUsAChinese](https://Ko-fi.com/mckleansscripts)
 local QBCore = exports['qb-core']:GetCoreObject()
 Config = {
 
     Debug = false,
-    Stress = 10,    -- Amount of strees relieved
-    Health = 0,     -- Amount of Health gained
-    Notify = "qb",  -- "qb" | "okok" | "rz"
+    Stress = 10,        -- Amount of strees relieved
+    Health = 0,         -- Amount of Health gained
+    Progbar = "ox",     -- "qb" | "ox"
 
     ---------- // Progressbar
     PbName = 'Finding the Zen',  -- What you want it to say on the Progressbar
