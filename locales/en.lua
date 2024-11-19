@@ -1,41 +1,67 @@
-local Translations = {
-    Notification = {
+Loc = Loc or {}
+
+-- ┌───────────────────────┐
+-- │    ENGLISH LOCALE     │
+-- ├─┬─────────────────────┘
+-- │ │
+-- │ │
+
+Loc["en"] = {
+    notification = {
         info = "Info",
         warning = "Warning",
         success = "Success",
         error = "Error",
     },
-    info = {
+    clientdebug = {
+        debug1 = '^1Debug:^7 ^2(%d)^7 has arrived at: ^5(%s)^7',
+        debug2 = '^1Debug:^7 Blip created for: ^5(%s)^7',
+    },
+    serverdebug = {
 
+    },
+    info = {
+        vehpurchase = "Impound Vehicle",
     },
     warning = {
 
     },
     success = {
-
+        washhands = "Your hands are cleaned!",
     },
     error = {
-        duty = "Your not on duty!",
-        cancelled = "Cancelled!",
-        yourpoor = "You dont have enough cash!",
-    },
-    progress = {
-        
+        not_clockedin = "You are not clocked in!",
+        seatinuse = "Someone is already sitting there..",
+        poleinuse = "Someone is already using this pole..",
+        cancelled = "Action Cancelled",
     },
     target = {
-        TargetLabel = "Stretch",
+        bossmenu = "Access Boss Menu",
+        gangmenu = "Access Gang Menu",
+        outfit = "Change Outfit",
+        duty = "Go on/off Duty",
+        counter = "Check Counter",
+        stock = "Check Stock",
+        stash = "Check Storage",
+        table = "Check Table",
+        personal = "Personal Locker",
+        wash_hands = "Wash your hands",
+        register = "Charge Customer",
+        store = "Open Materials Store",
+        seat = "Sit",
+        pole = "Dance",
+        yoga = "Stretch",
     },
-    location = {
-        label1 = "Yoga Class 1",
-        label2 = "Yoga Class 2",
-        label3 = "Yoga Class 3",
+    progress = {
+        washinghands = "Washing your hands.. ...",
+        crafting = "Crafting... ...",
+        yoga = "Finding the Zen",
     },
-    clientdebug = {
-        debug1 = "^1Debug:^7 Blip created for: ^5%{one}^7",
+    menu = {
+        close = "Close Menu",
+        goback = "Go Back",
+    },
+    blip = {
+        yogablip = "Yoga Class"
     },
 }
-
-Lang = Locale:new({
-    phrases = Translations,
-    warnOnMissing = true
-})
