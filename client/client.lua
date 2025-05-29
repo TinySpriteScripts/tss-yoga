@@ -6,22 +6,44 @@
 
 CreateThread(function()
 	for k, v in pairs(Locations) do
-        if v.ZoneEnable then
-            if v.Yoga then
-                for l, b in pairs(v.Yoga) do
-                    exports.ox_target:addBoxZone({
-                        coords= b.Coords.xyz, rotation = b.Coords.w, size = vec3(b.Size.xyz), debug = Debug(), drawSprite = Config.DrawSprite,
-                        options = {
-                            {
-                                onSelect = function() DoYoga() end,
-                                job=v.Job, gang=v.Gang, icon = b.Icon, label = b.Label,
-                            },
+		if v.ZoneEnable then
+			local bossroles, gangroles = {}, {}
+			while not Jobs do Wait(10) end
+			if not v.Job and not v.Gang then print("^1Error^7: ^1Skipping location^7. ^2No Job or Gang Set^7") return end
+			if not Jobs[v.Job] and not Jobs[v.Gang] and not Gangs[v.Gang] then
+				print("^1Error^7: ^1Skipping location^7. ^2Can't find the job/gang ^7'^6"..(v.Job or v.Gang).."^7' ^2in ^6Jobs^7") return
+			end
+			if v.Job and Jobs[v.Job] then bossroles = makeBossRoles(v.Job) elseif v.Gang and (Jobs[v.Gang] or Gangs[v.Gang]) then gangroles = makeBossRoles(v.Gang) end
+			if v.Blip.Enable then GetBlip({ Coords=v.Blip.Coords, Sprite=v.Blip.Sprite, Color=v.Blip.Color, Scale=v.Blip.Scale, Display=v.Blip.Display, Label=v.Label }) end 
+
+		-- ┌─────────────┐
+		-- │    Yoga     │
+		-- └─────────────┘
+            for l, b in pairs(v.Yoga) do
+                local name = GetCurrentResourceName()..":"..k..":Yoga["..l.."]"
+                createBoxTarget({name, b.coords.xyz, b.l, b.w, { name = name, heading = b.coords.w, debugPoly = debugMode, minZ=b.coords.z-1, maxZ=b.coords.z+1 } },
+                    {
+                        { 	
+                            action = function() DoYoga() end, 
+                            job = v.Job and bossroles, 
+                            gang = v.Gang and gangroles, 
+                            icon = b.icon, label = b.label, 
                         },
-                    })
-                    if b.Prop then GetProp({ Prop=b.Prop.Model, Coords=b.Prop.Coords.xyz, Head=b.Prop.Coords.w }) end
-                    if b.Blip then GetBlip({ Coords=b.coords, Sprite=b.Blip.sprite, Color=b.Blip.blipcolor, Scale=b.Blip.scale, Display=b.Blip.display, Label=b.Blip.name }) end
-                end
-            end
+                    }, 2.0)
+                if b.prop then GetProp({ 
+                    Prop=b.prop.model, 
+                    Coords=b.coords.xyz, 
+                    Head=b.coords.w 
+                }) end
+                if b.blip then GetBlip({ 
+                    Coords=b.coords, 
+                    Sprite=b.blip.sprite, 
+                    Color=b.blip.blipcolor, 
+                    Scale=b.blip.scale, 
+                    Display=b.blip.display, 
+                    Label=b.blip.name 
+                }) end
+			end
         end
     end
 end)

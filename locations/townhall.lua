@@ -6,38 +6,35 @@ Locations["TownHall"] = {
     Gang = nil,
     Yoga = {
         {
-            Coords = vector4(-488.87, -217.8, 35.58, 203.48), -- vec4(x,y,z,heading)
-            Size = vec3(1.8, 0.8, 1.5), -- vec3(length,width,height)
-            Icon = "fas fa-print", Label = Loc[Config.Lan].target["yoga"],
-            Prop = {
-                Model = "prop_yoga_mat_01",
-                Coords = vector4(-488.87, -217.8, 35.58, 203.48),
+            coords = vector4(-488.87, -217.8, 35.58, 203.48), -- vec4(x,y,z,heading)
+            icon = "fas fa-print", 
+            label = Loc[Config.Lan].target["yoga"],
+            prop = {
+                model = "prop_yoga_mat_01", -- https://forge.plebmasters.de/objects/prop_yoga_mat_01?search=prop_yoga_mat_01
             },
-            Blip = {
+            blip = {    -- https://docs.fivem.net/docs/game-references/blips/
                 label = Loc[Config.Lan].blip["yogablip"],
                 sprite = 197, display = 4, blipcolor = 69, scale = 0.5,
             },
         }, {
-            Coords = vector4(-491.09, -219.26, 35.52, 200.22), -- vec4(x,y,z,heading)
-            Size = vec3(1.8, 0.8, 1.5), -- vec3(length,width,height)
-            Icon = "fas fa-print", Label = Loc[Config.Lan].target["yoga"],
-            Prop = {
-                Model = "prop_yoga_mat_02",
-                Coords = vector4(-491.09, -219.26, 35.52, 200.22),
+            coords = vector4(-491.09, -219.26, 35.52, 200.22),
+            icon = "fas fa-print", 
+            label = Loc[Config.Lan].target["yoga"],
+            prop = {
+                model = "prop_yoga_mat_02",
             },
-            Blip = {
+            blip = {
                 label = Loc[Config.Lan].blip["yogablip"],
                 sprite = 197, display = 4, blipcolor = 69, scale = 0.5,
             },
         }, {
-            Coords = vector4(-491.57, -216.18, 35.62, 200.53), -- vec4(x,y,z,heading)
-            Size = vec3(1.8, 0.8, 1.5), -- vec3(length,width,height)
-            Icon = "fas fa-print", Label = Loc[Config.Lan].target["yoga"],
-            Prop = {
-                Model = "prop_yoga_mat_03",
-                Coords = vector4(-491.57, -216.18, 35.62, 200.53),
+            coords = vector4(-491.57, -216.18, 35.62, 200.53),
+            icon = "fas fa-print", 
+            label = Loc[Config.Lan].target["yoga"],
+            prop = {
+                model = "prop_yoga_mat_03",
             },
-            Blip = {
+            blip = {
                 label = Loc[Config.Lan].blip["yogablip"],
                 sprite = 197, display = 4, blipcolor = 69, scale = 0.5,
             },
