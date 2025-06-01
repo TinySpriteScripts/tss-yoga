@@ -79,21 +79,66 @@ end
 -- │    INVENTORY SLOT CHECKER     │
 -- └───────────────────────────────┘
 
+-- Check inv Slots
 RegisterNetEvent(GetCurrentResourceName()..":Server:CheckInventorySlots", function(id, requiredSlots)
     local src = source
-    local inventoryItems = exports.ox_inventory:GetInventoryItems(src)
-    local totalSlots = Config.InvSlots
+    local totalSlots = Config.System.InvSlots
     local usedSlots = 0
+    local inventoryItems = {}
 
+    -- ox_inventory support
+    if GetResourceState(OXInv):find("start") then
+        inventoryItems = exports[OXInv]:GetInventoryItems(src)
+    
+    -- qb-inventory support
+    elseif GetResourceState(QBInv):find("start") then
+        local Player = Core.Functions.GetPlayer(src)
+        if Player then
+            inventoryItems = Player.PlayerData.items or {}
+        end
+
+    -- ps-inventory support
+    elseif GetResourceState(PSInv):find("start") then
+        local inventory = exports[PSInv]:GetInventory(src)
+        inventoryItems = inventory.items or {}
+
+    -- qs-inventory support
+    elseif GetResourceState(QSInv):find("start") then
+        inventoryItems = exports[QSInv]:GetPlayerInventory(src)
+
+    -- core_inventory support
+    elseif GetResourceState(CoreInv):find("start") then
+        local inventory = exports[CoreInv]:GetPlayerInventory(src)
+        inventoryItems = inventory or {}
+
+    -- codem_inventory support
+    elseif GetResourceState(CodeMInv):find("start") then
+        local Player = Core.Functions.GetPlayer(src)
+        if Player then
+            inventoryItems = exports[CodeMInv]:GetPlayerInventory(Player.PlayerData.citizenid)
+        end
+
+    -- origen_inventory support
+    elseif GetResourceState(OrigenInv):find("start") then
+        inventoryItems = exports[OrigenInv]:GetPlayerInventory(src)
+
+    else
+        print('^1Error:^7 Unsupported inventory system detected')
+        return
+    end
+
+    -- Calculate used slots
     for _, item in pairs(inventoryItems) do
         if item then
             usedSlots = usedSlots + 1
         end
     end
 
+    -- Calculate free slots
     local freeSlots = totalSlots - usedSlots
     local canCarry = freeSlots >= requiredSlots
 
+    -- Trigger client event with result
     TriggerClientEvent(GetCurrentResourceName()..":Client:InventorySlotsChecked", src, id, canCarry)
 end)
 
@@ -110,7 +155,7 @@ end
 
 -- McKlean-Scripts Server Console Print
 local NotUpToDate = [[
-	|||^2  |\  /| |/   ^7||| ^1%s^7 is not up to date, please head to your ^6keymaster.fivem.net^7^1 to update.^7
+	|||^2  |\  /| |/   ^7||| ^1%s^7 ^7(^1%s^7) → ^2%s^7 available! Update at ^6portal.cfx.re^7
 	|||^2  | \/ | |\   ^7||| ^2McKleans-Scripts^7 | ^6%s^7 ]]
 
 local UpToDate = [[
@@ -128,7 +173,8 @@ local ResourceNameWarning = [[
 
 -- Fetches the latest version, name, and Discord link from the .txt file
 local function GetCurrentVersion()
-	PerformHttpRequest("https://raw.githubusercontent.com/McKleans-Scripts/mk-version_check/main/mk-yoga-version.txt", function(err, responseText, headers)
+	local versionURL = ("https://raw.githubusercontent.com/McKleans-Scripts/mk-version_check/main/%s-version.txt"):format(GetCurrentResourceName())
+	PerformHttpRequest(versionURL, function(err, responseText, headers)
 		Wait(3000)
 		if err ~= 200 or not responseText or responseText == "" then print(Error:format("Unknown Discord Link")) return end
 
@@ -141,7 +187,7 @@ local function GetCurrentVersion()
 
 		if currentName ~= expectedName then print(ResourceNameWarning:format(expectedName, expectedName)) return end
 
-		if currentVersion ~= latestVersion then print(NotUpToDate:format(expectedName, discordLink))
+		if currentVersion ~= latestVersion then print(NotUpToDate:format(expectedName, currentVersion, latestVersion, discordLink))
 		else print(UpToDate:format(expectedName, discordLink)) end
 	end)
 end

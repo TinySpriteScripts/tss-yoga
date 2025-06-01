@@ -2,7 +2,7 @@
 Config = {
 	Lan = "en",
 	System = {
-		Debug = true,			-- set true to view target/ped areas
+		Debug = false,			-- set true to view target/ped areas
 		Menu = "ox",			-- "qb", "ox"
 		Notify = "qb",			-- "qb", "ox", "esx, "okok", "gta"
 		ProgressBar = "qb", 	-- "qb", "ox"

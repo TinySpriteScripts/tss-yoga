@@ -3,18 +3,21 @@
 -- ├─┬───────────────────┘
 -- │ │
 -- │ │
-local MKVersion = GetResourceMetadata(GetCurrentResourceName(), "version")
-print("MK-Yoga "..MKVersion.." by ^2McKleans-Scripts^7")
+local MKDiscord = GetResourceMetadata(GetCurrentResourceName(), "discord") or "No Discord Link Set"
+print("^2McKleans-Scripts^7 - " .. MKDiscord)
 local Props, peds = {}, {}
 
 function Debug(data)
-    if Config.Debug then
+    if Config.System.Debug then
         if data then print(data) end
         return true
     end
     return false
 end
 
+function OnPlayerLoaded()
+    TriggerServerEvent(GetCurrentResourceName()..":Server:OnPlayerLoaded")
+end
 
 function ClientPrint(columns, title, ...)
 	if Debug() then 

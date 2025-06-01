@@ -3,15 +3,17 @@ game "gta5"
 lua54 'yes'
 
 name "MK-Yoga"
-author "McKleans-Scripts - https://discord.gg/DEWp9TP7p6"
-version "v2.5"
-description "Yoga By McKleans-Scripts"
+author "McKleans-Scripts"
+description "Yoga"
+version "2.5"
+discord "https://discord.gg/DEWp9TP7p6"
+tebex "https://mckleans-scripts.tebex.io/"
 
 dependency 'jim_bridge' -- https://github.com/jimathy/jim_bridge
 
 shared_scripts {
 	'locales/*.lua',
-    'config/*.lua',
+    'config.lua',
     'locations/*.lua',
     'escrowed/functions.lua',
     -- Required scripts
@@ -19,9 +21,9 @@ shared_scripts {
 }
 
 client_scripts { 
-    'client/*.lua', 'escrowed/client.lua',
+    'client/*.lua',
 }
-server_scripts { '@oxmysql/lib/MySQL.lua', 'escrowed/serverfunctions.lua', 'server/*.lua' }
+server_scripts { '@oxmysql/lib/MySQL.lua', 'escrowed/serverfunctions.lua' }
 
 escrow_ignore {
     'client/*.lua*',
