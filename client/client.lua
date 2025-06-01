@@ -20,11 +20,15 @@ CreateThread(function()
                             label = b.label,
                         },
                     }, 2.0)
-                if b.prop then GetProp({ 
-                    Prop=b.prop.model, 
-                    Coords=b.coords.xyz, 
-                    Head=b.coords.w 
-                }) end
+                if b.prop then 
+                    for _, propData in pairs(b.prop) do 
+                        GetProp({ 
+                            Prop = propData.model, 
+                            Coords = propData.coords.xyz, 
+                            Head = propData.coords.w 
+                        }) 
+                    end 
+                end
                 if b.blip then GetBlip({ 
                     Coords=b.coords, 
                     Sprite=b.blip.sprite, 
