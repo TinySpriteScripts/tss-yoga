@@ -153,23 +153,27 @@ function table.includes(table, value)
 end
 
 
--- McKlean-Scripts Server Console Print
+-- TinySprite Scripts Server Console Print
 local NotUpToDate = [[
-	|||^2  |\  /| |/   ^7||| ^1%s^7 ^7(^1%s^7) → ^2%s^7 available! Update at ^6portal.cfx.re^7
-	|||^2  | \/ | |\   ^7||| ^2McKleans-Scripts^7 | ^6%s^7 ]]
+	|||^2  |‾‾‾|/‾‾‾\ /‾‾‾\  ^7||| ^1%s^7 ^7(^1%s^7) → ^2%s^7 available! Update at ^6portal.cfx.re^7
+	|||^2    |  \__‾‾\\__‾‾\ ^7|||
+	|||^2    |   |___/ |___/ ^7||| ^2TinySprite Scripts^7 | ^6%s^7 ]]
 
 local UpToDate = [[
-	|||^2  |\  /| |/   ^7||| ^2%s^7
-	|||^2  | \/ | |\   ^7||| ^2McKleans-Scripts^7 | ^6%s^7 ]]
+	|||^2  |‾‾‾|/‾‾‾\ /‾‾‾\  ^7||| ^2%s^7
+	|||^2    |  \__‾‾\\__‾‾\ ^7|||
+	|||^2    |   |___/ |___/ ^7||| ^2TinySprite Scripts^7 | ^6%s^7 ]]
 
 local Error = [[
-	|||^2  |\  /| |/   ^7||| ^1ERROR:^7 There was an error getting the latest version information.
-	|||^2  | \/ | |\   ^7||| ^2McKleans-Scripts^7 | ^6%s^7 ]]
+	|||^2  |‾‾‾|/‾‾‾\ /‾‾‾\  ^7||| ^1ERROR:^7 There was an error getting the latest version information.
+	|||^2    |  \__‾‾\\__‾‾\ ^7|||
+	|||^2    |   |___/ |___/ ^7||| ^2TinySprite Scripts^7 | ^6%s^7 ]]
 
 local ResourceNameWarning = [[
 		^1ERROR:^7 Wrong Resource Name Detected!!!
-	|||^2  |\  /| |/   ^7||| Resource name is not ^2%s^7, expect there to be issues with the resource.
-	|||^2  | \/ | |\   ^7||| ^5Rename the script back to^7: ^2%s^7 To Receive Support! ]]
+	|||^2  |‾‾‾|/‾‾‾\ /‾‾‾\  ^7||| Resource name is not ^2%s^7, expect there to be issues with the resource.
+	|||^2    |  \__‾‾\\__‾‾\ ^7||| ^5Rename the script back to^7: ^2%s^7 To Receive Support!
+	|||^2    |   |___/ |___/ ^7||| ^2TinySprite Scripts^7 | ^6%s^7 ]]
 
 -- Fetches the latest version, name, and Discord link from the .txt file
 local function GetCurrentVersion()

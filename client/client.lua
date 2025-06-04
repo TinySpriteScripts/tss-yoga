@@ -3,41 +3,35 @@
 -- ├─┬────────────────┘
 -- │ │
 -- │ │
-
 CreateThread(function()
 	for k, v in pairs(Locations) do
 		if v.ZoneEnable then
-		-- ┌─────────────┐
-		-- │    Yoga     │
-		-- └─────────────┘
-            for l, b in pairs(v.Yoga) do
-                local name = GetCurrentResourceName()..":"..k..":Yoga["..l.."]"
-                createBoxTarget({name, b.coords.xyz, b.l, b.w, { name = name, heading = b.coords.w, debugPoly = debugMode, minZ=b.coords.z-1, maxZ=b.coords.z+1 } },
-                    {
-                        { 	
-                            action = function() DoYoga() end,
-                            icon = b.icon,
-                            label = b.label,
-                        },
-                    }, 2.0)
-                if b.prop then 
-                    for _, propData in pairs(b.prop) do 
-                        GetProp({ 
-                            Prop = propData.model, 
-                            Coords = propData.coords.xyz, 
-                            Head = propData.coords.w 
-                        }) 
-                    end 
+            if v.Blip then
+                GetBlip({ 
+                    Coords=v.Blip.coords, 
+                    Label=v.Blip.label, 
+                    Sprite=v.Blip.sprite, 
+                    Display=v.Blip.display, 
+                    Color=v.Blip.blipcolor, 
+                })
+            end
+
+            local function buildTargets(category, list, actionCallback, getOptions)
+                for l, b in pairs(list or {}) do
+                    local minZ = b.minZ ~= nil and b.minZ or (b.coords.z - 1)
+                    local maxZ = b.maxZ ~= nil and b.maxZ or (b.coords.z + 1)
+                    local zoneName = ("%s:%s:%s[%s]"):format(GetCurrentResourceName(), k, category, l)
+                    local zoneOptions = getOptions and getOptions(b, l, zoneName) or {}
+
+                    CreateZoneAndProps(zoneName, b.coords.xyz, b.l, b.w, b.coords.w, minZ, maxZ, zoneOptions, b.prop)
                 end
-                if b.blip then GetBlip({ 
-                    Coords=b.coords, 
-                    Sprite=b.blip.sprite, 
-                    Color=b.blip.blipcolor, 
-                    Scale=b.blip.scale, 
-                    Display=b.blip.display, 
-                    Label=b.blip.name 
-                }) end
-			end
+            end
+
+            buildTargets("Yoga", v.Yoga, nil, function(b)
+                return {
+                    { action = function() DoYoga() end, icon = b.icon, label = b.label, }
+                }, b.prop
+            end)
         end
     end
 end)

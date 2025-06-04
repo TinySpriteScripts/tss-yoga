@@ -2,12 +2,12 @@ fx_version "cerulean"
 game "gta5"
 lua54 'yes'
 
-name "MK-Yoga"
-author "McKleans-Scripts"
+name "TSS-Yoga"
+author "TinySpriteScripts"
 description "Yoga"
 version "2.5"
-discord "https://discord.gg/DEWp9TP7p6"
-tebex "https://mckleans-scripts.tebex.io/"
+discord "https://discord.gg/ZMFfC54FdJ"
+tebex "https://tinyspritescripts.tebex.io/"
 
 dependency 'jim_bridge' -- https://github.com/jimathy/jim_bridge
 

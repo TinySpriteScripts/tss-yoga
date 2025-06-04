@@ -3,9 +3,18 @@
 -- ├─┬───────────────────┘
 -- │ │
 -- │ │
-local MKDiscord = GetResourceMetadata(GetCurrentResourceName(), "discord") or "No Discord Link Set"
-print("^2McKleans-Scripts^7 - " .. MKDiscord)
+local TSSDiscord = GetResourceMetadata(GetCurrentResourceName(), "discord") or "No Discord Link Set"
+print("^2TinySpriteScripts^7 - " .. TSSDiscord)
 local Props, peds = {}, {}
+
+function CreateZoneAndProps(name, coords, l, w, heading, minZ, maxZ, options, props)
+	createBoxTarget({ name, coords, l, w, { name=name, heading=heading, debugPoly=debugMode, minZ=minZ, maxZ=maxZ } }, options, 2.0)
+	if props then
+		for _, prop in pairs(props) do
+			GetProp({ Prop = prop.model, Coords = prop.coords.xyz, Head = prop.coords.w })
+		end
+	end
+end
 
 function Debug(data)
     if Config.System.Debug then
