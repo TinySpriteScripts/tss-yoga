@@ -3,35 +3,25 @@ game "gta5"
 lua54 'yes'
 
 name "TSS-Yoga"
-author "TinySpriteScripts"
+author "TinySprite"
 description "Yoga"
-version "2.5"
+version "2.5.1"
 discord "https://discord.gg/ZMFfC54FdJ"
-tebex "https://tinyspritescripts.tebex.io/"
+tebex "https://tinysprite.dev/"
 
-dependency 'jim_bridge' -- https://github.com/jimathy/jim_bridge
+dependency 'tss_bridge'
 
 shared_scripts {
 	'locales/*.lua',
     'config.lua',
     'locations/*.lua',
-    'escrowed/functions.lua',
-    -- Required scripts
-    '@jim_bridge/starter.lua', -- https://github.com/jimathy/jim_bridge
 }
 
-client_scripts { 
+client_scripts {
     'client/*.lua',
 }
-server_scripts { '@oxmysql/lib/MySQL.lua', 'escrowed/serverfunctions.lua' }
 
-escrow_ignore {
-    'client/*.lua*',
-    'Install/**',
-    'locales/*.lua*',
-    'locations/*.lua',
-    'server/*.lua*',
-    'config.lua',
+server_scripts {
+    'server/*.lua',
 }
 
-dependency '/assetpacks'
